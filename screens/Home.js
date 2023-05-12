@@ -1,22 +1,22 @@
-import { StyleSheet, View, Text } from "react-native";
+import { useState } from "react";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 
-export default function Home() {
+import { global } from "../styles";
+
+import games from "../data/games";
+
+export default function Home({ navigation }) {
+  const [reviews, setReviews] = useState(games);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home Screen</Text>
+    <View style={global.container}>
+      <FlatList data={reviews} renderItem={({ item }) => (
+        <TouchableOpacity onPress={() => {
+          navigation.navigate("Review", item);
+        }}>
+          <Text style={global.title}>{item.title}</Text>
+        </TouchableOpacity>
+      )} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: "#FFF",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  title: {
-    fontFamily: "Nunito-Bold",
-  }
-});

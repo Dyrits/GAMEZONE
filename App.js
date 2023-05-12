@@ -3,6 +3,8 @@ import * as Font from "expo-font";
 // AppLoading is deprecated. The implementation og SplashScreen requires additional setup.
 import AppLoading from "expo-app-loading";
 
+import StackNavigator from "./navigation/StackNavigator";
+
 import Home from "./screens/Home";
 
 const loadFonts = () => Font.loadAsync({
@@ -14,6 +16,6 @@ export default function App() {
   const [isReady, setIsReady] = useState(false);
 
   return isReady ?
-    <Home /> :
+    <StackNavigator /> :
     <AppLoading startAsync={loadFonts} onFinish={() => setIsReady(true)} onError={console.warn} />;
 }
