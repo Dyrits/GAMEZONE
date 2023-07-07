@@ -5,9 +5,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Home, Review, About } from "../screens";
 
 const screens = [
-  { name: "Home", component: Home, options: { title: "Home" } },
+  { name: "Home", component: Home, options: { title: "GameZone" } },
   { name: "Review", component: Review, options: { title: "Review" } },
-  { name: "About", component: About, options: { title: "About" } },
+  { name: "About", component: About, options: { title: "About" } }
 ];
 
 const Stack = createNativeStackNavigator();
